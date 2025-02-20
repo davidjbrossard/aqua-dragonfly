@@ -328,40 +328,6 @@
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
-      "get": {
-        "summary": "Get all todos",
-        "description": "Gets all the todos in the todo list.",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlRewriteHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "rewritePattern": "https://jsonplaceholder.typicode.com/todos",
-              "forwardSearch": true
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        },
-        "operationId": "b61c0cd1-b380-4440-a430-840ea85f3e9c",
-        "responses": {
-          "200": {
-            "description": "A list of todos",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TodoListObject"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Standard Todo List Endpoints"
-        ]
-      },
       "post": {
         "summary": "Create Todo",
         "description": "Creates a todo list item.",
@@ -430,6 +396,45 @@
             }
           }
         }
+      }
+    },
+    "/v1/todoss": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get all todos",
+        "description": "Gets all the todos in the todo list.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "https://jsonplaceholder.typicode.com/todos",
+              "forwardSearch": true
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "b61c0cd1-b380-4440-a430-840ea85f3e9c",
+        "responses": {
+          "200": {
+            "description": "A list of todos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TodoListObject"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Standard Todo List Endpoints"
+        ]
       }
     },
     "/v1/$todosAndUsers": {
